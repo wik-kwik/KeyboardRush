@@ -12,14 +12,14 @@ root = Tk()
 root.geometry("1200x720+350+100")
 root.resizable(False, False)
 root.title('Keyboard Rush')
-root.iconphoto(False, PhotoImage(file="keyboard.png"))
+root.iconphoto(False, PhotoImage(file="Images/keyboard.png"))
 
 # Wczytywanie teł
-bg = PhotoImage(file="background.png")
-endBg = PhotoImage(file='end.png')
-menuBg = PhotoImage(file="menuBackground.png")
-aboutBg = PhotoImage(file="aboutBackground.png")
-errorBg = PhotoImage(file="noinputBackground.png")
+bg = PhotoImage(file="Images/background.png")
+endBg = PhotoImage(file='Images/endBackground.png')
+menuBg = PhotoImage(file="Images/menuBackground.png")
+aboutBg = PhotoImage(file="Images/aboutBackground.png")
+errorBg = PhotoImage(file="Images/noinputBackground.png")
 
 # Ustawienia tła
 bgCanvas = Canvas(root, width=1200, height=720, highlightthickness=0)
