@@ -69,7 +69,7 @@ def menu(*args):
     # =================::ZADANIE 1::====================
     # ==================================================
 
-    # 1.1 Zdefiniuj "przycisk" wyjścia z aplikacji; odpowiednia funkcja dla tego przycisku jest już zaimplenetowana, wystarczy ją przypisać
+    # 1.1 Zdefiniuj "przycisk" wyjścia z aplikacji; odpowiednia funkcja dla tego przycisku jest już zaimplementowana, wystarczy ją przypisać
 
 
     # Przypisanie funkcji dla przycisków
