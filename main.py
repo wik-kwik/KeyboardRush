@@ -26,9 +26,19 @@ bgCanvas = Canvas(root, width=1200, height=720, highlightthickness=0)
 bgCanvas.pack(fill="both", expand=True)
 
 # Wczytywanie plików ze słowami
+
+#==================================================
+#=================::ZADANIE 2::====================
+#==================================================
+
+# https://www.mit.edu/~ecprice/wordlist.10000'
+
+####################################################################
+# Zamiast poniższego, wczytaj słowa z linku; weź pod uwagę kryteria!
 with open("easyFile.txt", "r") as easyFile:
     wholeText = easyFile.read()
     easyWords = list(map(str, wholeText.split()))
+####################################################################
 
 with open("mediumFile.txt", "r") as mediumFile:
     wholeText = mediumFile.read()
@@ -48,25 +58,32 @@ def menu(*args):
 
     # Ustawienie tła
     bgCanvas.create_image(0, 0, image=menuBg, anchor="nw")
+
     # Współrzędne prostokątów (służących jako przyciski)
     easyRect = bgCanvas.create_rectangle((170, 350, 420, 560), fill="", outline="")
     mediumRect = bgCanvas.create_rectangle((470, 350, 720, 560), fill="", outline="")
     hardRect = bgCanvas.create_rectangle((780, 350, 1030, 560), fill="", outline="")
-    exitRect = bgCanvas.create_rectangle((1155, 10, 1190, 43), fill="", outline="")
     aboutRect = bgCanvas.create_rectangle((1125, 650, 1190, 710), fill="", outline="")
+
+    # ==================================================
+    # =================::ZADANIE 1::====================
+    # ==================================================
+
+    # 1.1 Zdefiniuj "przycisk" wyjścia z aplikacji; odpowiednia funkcja dla tego przycisku jest już zaimplenetowana, wystarczy ją przypisać
+
 
     # Przypisanie funkcji dla przycisków
     bgCanvas.tag_bind(easyRect, '<ButtonPress-1>', easyLevel)
     bgCanvas.tag_bind(mediumRect, '<ButtonPress-1>', mediumLevel)
     bgCanvas.tag_bind(hardRect, '<ButtonPress-1>', hardLevel)
-    bgCanvas.tag_bind(exitRect, '<ButtonPress-1>', exit)
+    # 1.2 Przypisz odpowiednią funkcję do przycisku
     bgCanvas.tag_bind(aboutRect, '<ButtonPress-1>', about)
 
     # Dodanie przycisków do listy
     rectangles.append(easyRect)
     rectangles.append(mediumRect)
     rectangles.append(hardRect)
-    rectangles.append(exitRect)
+    # 1.3 Wrzuć stworzony przycisk do listy rectangles
     rectangles.append(aboutRect)
 
 
@@ -278,7 +295,7 @@ def timer(state, t):
             t -= 1
         end()
 
-
+# Funkcja exit, potrzebna do Zadania 1
 def exit(event):
     root.quit()
 
