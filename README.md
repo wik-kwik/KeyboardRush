@@ -1,20 +1,9 @@
 # Keyboard Rush
 
 
-## Zadanie 1
+## Prezentacja wideo
 
-Stwórz „przycisk” obsługujący ikonę zamknięcia aplikacji.
+https://user-images.githubusercontent.com/67471556/164505146-a076b4d7-c893-4306-b3ce-2320cadfe123.mp4
 
-Wskazówka: Pamiętaj o przypisaniu do niego funkcji exit() oraz dołączeniu go do odpowiedniej listy.
-## Zadanie 2
-
-Dla poziomu Easy, zamiast korzystać z dodanych plików, skorzystaj z listy słów z podanej strony. Listę wczytaj do **easyWords**.
-
-Weź pod uwagę poziom trudności – słowa powinny być krótkie (od 3 do 7 znaków).
-
-**Źródło:** https://www.mit.edu/~ecprice/wordlist.10000
-
-    
-Wskazówka: Skorzystaj z biblioteki requests (get, .text)
 
 
