@@ -1,7 +1,13 @@
+#===========================================================================
+#=================::ROZWIĄZANE ZADANIA - KEYBOARD RUSH::====================
+#===========================================================================
+
 from tkinter import *
 from time import sleep
 from random import choices
 import concurrent.futures
+#2.0
+from requests import get
 
 # Lista widgetów i prostokątów (przycisków)
 widgets = []
@@ -31,13 +37,10 @@ bgCanvas.pack(fill="both", expand=True)
 #=================::ZADANIE 2::====================
 #==================================================
 
-# https://www.mit.edu/~ecprice/wordlist.10000'
-
 ####################################################################
-# Zamiast poniższego, wczytaj słowa z linku; weź pod uwagę kryteria!
-with open("easyFile.txt", "r") as easyFile:
-    wholeText = easyFile.read()
-    easyWords = list(map(str, wholeText.split()))
+source = get('https://www.mit.edu/~ecprice/wordlist.10000').text
+easyWords = source.splitlines()
+easyWords = [word for word in easyWords if len(word) >= 3 and len(word) <= 7]
 ####################################################################
 
 with open("mediumFile.txt", "r") as mediumFile:
@@ -69,21 +72,23 @@ def menu(*args):
     # =================::ZADANIE 1::====================
     # ==================================================
 
-    # 1.1 Zdefiniuj "przycisk" wyjścia z aplikacji; odpowiednia funkcja dla tego przycisku jest już zaimplementowana, wystarczy ją przypisać
-
+    # 1.1
+    exitRect = bgCanvas.create_rectangle((1125, 10, 1190, 40), fill="", outline="")
 
     # Przypisanie funkcji dla przycisków
     bgCanvas.tag_bind(easyRect, '<ButtonPress-1>', easyLevel)
     bgCanvas.tag_bind(mediumRect, '<ButtonPress-1>', mediumLevel)
     bgCanvas.tag_bind(hardRect, '<ButtonPress-1>', hardLevel)
-    # 1.2 Przypisz odpowiednią funkcję do przycisku
+    # 1.2
+    bgCanvas.tag_bind(exitRect, '<ButtonPress-1>', exit)
     bgCanvas.tag_bind(aboutRect, '<ButtonPress-1>', about)
 
     # Dodanie przycisków do listy
     rectangles.append(easyRect)
     rectangles.append(mediumRect)
     rectangles.append(hardRect)
-    # 1.3 Wrzuć stworzony przycisk do listy rectangles
+    # 1.3
+    rectangles.append(exitRect)
     rectangles.append(aboutRect)
 
 
